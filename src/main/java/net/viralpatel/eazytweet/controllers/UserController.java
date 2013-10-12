@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class UserController {
@@ -17,21 +18,21 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value = "/create-user", method = RequestMethod.POST)
-	public User create(String username, 
+	@RequestMapping(value = "/create-user.htm", method = RequestMethod.POST)
+	public String create(String username, 
 						String password, 
 						HttpSession session) {
 		
 		User user = userService.create(username, password);
 		
 		session.setAttribute("userid", user.getId());
-		
-		return user;
+		session.setAttribute("username", username);
+		return "redirect:user-home.htm";
 	}
 
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public User login(String username, 
+	public String login(String username, 
 						String password, 
 						HttpSession session,
 						HttpServletResponse response) {
@@ -43,7 +44,7 @@ public class UserController {
 		
 		session.setAttribute("userid", user.getId());
 		
-		return user;
+		return "redirect:user-home.htm";
 	}
 	
 	

@@ -20,7 +20,7 @@ public class TweetController {
 	private TweetService tweetService;
 	
 	
-	@RequestMapping(value="/create-tweet", method=RequestMethod.POST)
+	@RequestMapping(value="/create-tweet.htm", method=RequestMethod.POST)
 	public Tweet create(String text, HttpSession session, HttpServletResponse response) {
 				
 		String userId = checkSession(session, response);
@@ -30,9 +30,8 @@ public class TweetController {
 	}
 	
 	
-	@RequestMapping(value="/list", method=RequestMethod.GET)
+	@RequestMapping(value="/list.htm", method=RequestMethod.GET)
 	public List<Tweet> listByViewer(HttpSession session, HttpServletResponse response) {
-		
 		String userId = checkSession(session, response);
 		if(null == userId) return null;
 

@@ -1,0 +1,23 @@
+<div class="container" data-ng-controller="HomeCtrl">
+<div class="row">
+	<div  class="col-lg-6">
+		<div class="input-group">
+	    	<input type="text" data-ng-model="newTweet" class="form-control" placeholder="new tweet">
+	    	<span class="input-group-btn">
+	    		<button data-ng-click="createTweet()" class="btn btn-primary" type="button">Tweet!</button>
+	    	</span>
+	   </div>
+   </div>
+   <div class="col-lg-6">
+   </div>
+</div>
+<br>
+
+<div class="row">
+  	<div class="col-md-6">
+  		<ul class="list-group">
+  			<li class="list-group-item tweets" ng-repeat="tweet in tweetTimeline">{{tweet.user}}:  {{tweet.text}}</li>
+  		</ul>
+  	</div>
+</div>
+</div>

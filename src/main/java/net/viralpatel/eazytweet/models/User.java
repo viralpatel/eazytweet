@@ -45,7 +45,7 @@ public class User {
 
 	private String bio;
 
-	private Long tweetCount;
+	private Long tweetCount = 0l;
 
 	private List<UserId> followers;
 
