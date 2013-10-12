@@ -6,7 +6,9 @@
 .project
 .metadata
 bin/
+classes/
 tmp/
+target/
 *.tmp
 *.bak
 *.swp
